@@ -18,7 +18,7 @@ const SignUp = ({isReg,setIsReg}) => {
     },
     validate,
     onSubmit: (values) => {
-      localStorage.setItem("user", JSON.stringify(values));
+      localStorage.setItem("CURRENT USER", JSON.stringify(values));
       setIsReg(localStorage.setItem("isReg",JSON.stringify(true)))
     },
   });
