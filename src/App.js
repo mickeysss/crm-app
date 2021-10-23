@@ -40,8 +40,6 @@ useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin])))
               isReg={isReg}
               setIsReg={setIsReg}
               handleLogin={handleLogin}
-              isLogin={isLogin}
-              setIsLogin={setIsLogin}
             />
           ) : (
             <Route
