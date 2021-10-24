@@ -12,14 +12,6 @@ function App() {
 const [isReg,setIsReg] = useState(false)
 const [isLogin,setIsLogin] = useState(false)
 
-const handleLogin = (e) => {
-  e.preventDefault()
-  setIsLogin(true)
-}
-const handleLogout = (e) => {
-  e.preventDefault()
-  setIsLogin(false)
-}
 
 useEffect(() => JSON.stringify(localStorage.setItem("isReg", [isReg])))
 useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin]))) 
@@ -39,7 +31,6 @@ useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin])))
               setIsLogin={setIsLogin}
               isReg={isReg}
               setIsReg={setIsReg}
-              handleLogin={handleLogin}
             />
           ) : (
             <Route
