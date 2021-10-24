@@ -24,7 +24,7 @@ const SignUp = ({isReg,setIsReg}) => {
   });
   return (
     <>
-    {isReg && <Redirect to="/"/>}
+    {isReg && <Redirect to="/main-page"/>}
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.modalBox}>
