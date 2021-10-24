@@ -18,7 +18,7 @@ useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin])))
 
   return (
     <div className={styles.App}>
-        <SideBar handleLogout={handleLogout}  />
+        <SideBar />
         <Switch>
         {routes.map((route, index) =>
           route.withAuth ? ( 
