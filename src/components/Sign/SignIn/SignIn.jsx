@@ -6,6 +6,7 @@ import { Redirect } from "react-router-dom";
 
 import { useFormik } from "formik";
 import { NavLink } from "react-router-dom";
+
 const SignIn = ({isReg,isLogin,setIsLogin}) => {
   const formik = useFormik({
     initialValues: {
