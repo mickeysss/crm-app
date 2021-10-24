@@ -20,7 +20,7 @@ export const routes = [
   },
   {
     component: MainPage,
-    path: "/",
+    path: "/main-page",
     exact: true,
     withAuth: true,
   },
