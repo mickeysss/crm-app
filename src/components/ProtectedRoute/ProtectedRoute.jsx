@@ -13,7 +13,7 @@ const ProtectedRoute = ({
     <Route
       {...rest}
       render={() =>
-        user ? (
+        isReg || isLogin ? (
           <Component 
             isReg={isReg} 
             setIsReg={setIsReg} 
