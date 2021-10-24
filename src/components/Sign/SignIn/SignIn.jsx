@@ -13,7 +13,7 @@ const SignIn = ({isReg,isLogin,setIsLogin}) => {
       password: "",
     },
     onSubmit: (values) => {
-    const users = JSON.parse(localStorage.getItem("users"));
+    const users = JSON.parse(localStorage.getItem("CURRENT USER"));
     const checkUser = users.find((user) => user.email === values.email && user.password === values.password);
       if(checkUser){
         setIsLogin(localStorage.setItem("isLogin",JSON.stringify(true))) 
