@@ -12,10 +12,8 @@ function App() {
 const [isReg,setIsReg] = useState(false)
 const [isLogin,setIsLogin] = useState(false)
 
-
 useEffect(() => JSON.stringify(localStorage.setItem("isReg", [isReg])))
 useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin]))) 
-
   return (
     <div className={styles.App}>
         <SideBar />
