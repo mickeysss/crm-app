@@ -9,24 +9,22 @@ import SideBar from "./components/Sidebar/Sidebar";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 function App() {  
-const [isReg,setIsReg] = useState(false)
-const [isLogin,setIsLogin] = useState(false)
+  const [isReg,setIsReg] = useState(false)
+  const [isLogin,setIsLogin] = useState(false)
 
-const handleLogin = (e) => {
-  e.preventDefault()
-  setIsLogin(true)
-}
-const handleLogout = (e) => {
-  e.preventDefault()
-  setIsLogin(false)
-}
-
-useEffect(() => JSON.stringify(localStorage.setItem("isReg", [isReg])))
-useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin]))) 
-
+  useEffect(() => {
+    setIsLogin(true)
+    setIsReg(true)
+  }, [])
   return (
+    <>
     <div className={styles.App}>
-        <SideBar handleLogout={handleLogout}  />
+        <SideBar 
+         isLogin={isLogin}
+         setIsLogin={setIsLogin}
+         isReg={isReg}
+         setIsReg={setIsReg}
+        />
         <Switch>
         {routes.map((route, index) =>
           route.withAuth ? ( 
@@ -39,29 +37,32 @@ useEffect(() => JSON.stringify(localStorage.setItem("isLogin", [isLogin])))
               setIsLogin={setIsLogin}
               isReg={isReg}
               setIsReg={setIsReg}
-              handleLogin={handleLogin}
-              isLogin={isLogin}
-              setIsLogin={setIsLogin}
             />
           ) : (
             <Route
               key={index}
               path={route.path}
-              component={route.component}
               routes={route.exact}
-              render={() => (
-              <route.component
+              render={() => {
+                const Component = route.component
+                return(
+              <>
+              <Component
                 isReg={isReg}
                 setIsReg={setIsReg}
                 isLogin={isLogin}
                 setIsLogin={setIsLogin}
               />
-              )}
+              </>
+                )
+              }}
             />
           )
         )}
       </Switch>
+
     </div>
+    </>
   );
 }
 

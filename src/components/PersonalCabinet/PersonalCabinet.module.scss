@@ -28,6 +28,7 @@ $fontWeightH2: 600;
       }
 
       p {
+        color:$fontGraphColor ;
         font-weight: 400;
         font-size: 14px;
         line-height: 14px;
@@ -39,7 +40,6 @@ $fontWeightH2: 600;
     .wrapperButton {
       display: flex;
       width: 11vw;
-      height: 5vh;
       background-color: $buttonBackground;
       border-radius: 3px;
       color: $buttonFontcolor;
@@ -49,6 +49,8 @@ $fontWeightH2: 600;
       text-align: center;
       padding: 5px;
       cursor: pointer;
+      max-width: 201px;
+      max-height: 52px;
 
       .buttonText {
         margin-left: 5px;
@@ -74,6 +76,7 @@ $fontWeightH2: 600;
       max-width: 380px;
       font-size:12px;
       font-weight: 400;
+
       .formInput{
         max-width: 380px;
         min-height: 46px;
@@ -99,3 +102,15 @@ $fontWeightH2: 600;
 
 
 }
+
+.errors{
+  display: block;
+  font-size: 11px;
+  line-height: 14px;
+  color: #CF4949;
+  margin-bottom: 10px;
+}
+  // .inputBlock{
+  // display: block;
+  // }
+

@@ -12,7 +12,7 @@ import personCabinetIcon from "../assets/logo/user.svg";
 import editIcon from "../assets/logo/edit2.svg";
 import deleteIcon from "../assets/logo/delete.svg";
 import plus from "../assets/logo/plus.svg";
-
+import logout from "../assets/logo/log.svg"
 const today = new Date();
 const date =
   today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
@@ -33,6 +33,7 @@ export const imgs = {
   editIcon: editIcon,
   deleteIcon: deleteIcon,
   plus: plus,
+  logout: logout,
 };
 
 export const products = [

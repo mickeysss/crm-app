@@ -22,16 +22,21 @@
   margin: 150px auto;
   max-width: 380px;
   min-height: 52px;
+
   h1{
-    font-family: "Inter";
     font-size: 36px;
-    line-height: 48px
-  }
-  h1{
     text-align: center;
+    line-height: 48px;
   }
   .formLink{
     text-align: center;
+    span{
+      font-weight: 500;
+      line-height: 14px;
+      letter-spacing: 0em;
+      text-align: left;
+
+    }
   }
   a{
     margin-left: 3px;
@@ -57,7 +62,9 @@
 .formColumn{
   display: flex;
   justify-content: space-between;
-
+  input{
+    max-width: 182px;
+  }
 }
 .formBtn{
   color: #FFFFFF;
@@ -68,6 +75,7 @@
   border-radius: 3px;
   background: #5382E7;
   border: none;
+  cursor: pointer;
 }
 .heroWrapper{
   width: 50%;

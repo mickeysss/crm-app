@@ -6,23 +6,26 @@ import { Redirect } from "react-router-dom";
 
 import { useFormik } from "formik";
 import { NavLink } from "react-router-dom";
-const SignIn = ({isReg,isLogin,setIsLogin}) => {
+const SignIn = ({isLogin,setIsLogin}) => {
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
     onSubmit: (values) => {
-    const users = JSON.parse(localStorage.getItem("users"));
-    const checkUser = users.find((user) => user.email === values.email && user.password === values.password);
+    const users = JSON.parse(localStorage.getItem("CURRENT USER"));
+    const checkUser = users.email === values.email && users.password === values.password;
       if(checkUser){
-        setIsLogin(localStorage.setItem("isLogin",JSON.stringify(true))) 
+        setIsLogin(true)
       }
     },
   });
+
+  if(isLogin) {
+    return <Redirect to='/main-page'/>
+  }
   return (
     <>
-    {isLogin && <Redirect to={'/'}/>}
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.modalBox}>

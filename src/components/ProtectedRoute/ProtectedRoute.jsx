@@ -2,8 +2,6 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({
-  user,
-  setUser,
   isReg,
   setIsReg,
   isLogin,
@@ -11,11 +9,12 @@ const ProtectedRoute = ({
   component:Component,
   ...rest
 }) => {
+  const userInfo = isReg || isLogin
   return (
     <Route
       {...rest}
       render={() =>
-        user ? (
+        userInfo ? (
           <Component 
             isReg={isReg} 
             setIsReg={setIsReg} 

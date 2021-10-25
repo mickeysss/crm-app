@@ -11,7 +11,7 @@ const MyProducts = (props) => {
   const [hidden, setHidden] = useState(false);
   const [isSubmit, setIsSubmit] = useState(false);
   const [allProducts, setAllProducts] = useState([]);
-
+  
   const handleSubmit = () => {
     setIsSubmit(!isSubmit);
     if (allProducts && allProducts.length === 0) {
@@ -27,9 +27,6 @@ const MyProducts = (props) => {
     setAllProducts(JSON.parse(localStorage.getItem("products")));
   }, [isSubmit]);
 
-  // useEffect(() => {
-  //   setAllProducts(JSON.parse(localStorage.getItem("products")));
-  // }, []);
 
   const updateAllProducts = (date) => {
     setAllProducts(date);
@@ -42,7 +39,7 @@ const MyProducts = (props) => {
         <div className={styles.wrapper}>
           <div className={styles.headWrapper}>
             <div className={styles.headWrapperTitle}>
-              <h1>My products</h1>
+              <h1>My product</h1>
               <p>Product table</p>
             </div>
             <div onClick={openModal} className={styles.wrapperButton}>
@@ -66,6 +63,7 @@ const MyProducts = (props) => {
               <div className={styles.productListMenu}>Weight/Volume</div>
               <div className={styles.productListMenu}>Actions</div>
             </div>
+            <div className={styles.products}>
             {allProducts.map((product) => (
               <ProductItem
                 product={product}
@@ -73,6 +71,7 @@ const MyProducts = (props) => {
                 updateAllProducts={updateAllProducts}
               />
             ))}
+            </div>
           </div>
         </div>
       </div>

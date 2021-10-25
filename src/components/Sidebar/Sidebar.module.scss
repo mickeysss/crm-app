@@ -67,3 +67,22 @@ $iconBackgroundColor: #5382E7;
   }
 
 }
+
+.loginElement{
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  img,p{
+    color: #a2aab1;
+  }
+  p{
+    margin-left: 9px;
+  }
+  img{
+    filter:
+    invert(0.5)
+    sepia(1)
+    grayscale(100%)
+  }
+}

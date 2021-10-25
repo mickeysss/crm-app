@@ -3,10 +3,6 @@ import React, { useMemo, useState } from "react";
 import styles from "./EditModal.module.scss";
 import { imgs } from "../../../mock/mock";
 
-const today = new Date();
-const presentDate =
-  today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
-
 const EditModal = ({ hidden, setHidden, id, products }) => {
   const [form, setForm] = useState({
     productName: "",
@@ -25,6 +21,11 @@ const EditModal = ({ hidden, setHidden, id, products }) => {
   };
 
   const onSubmit = () => {
+    const userInfo = JSON.parse(localStorage.getItem("CURRENT USER"))
+    const today = new Date();
+    const presentDate =
+    today.getDate() + "." + (today.getMonth() + 1) + "." + today.getFullYear();
+
     const newProducts = products.map((pr) => {
       if (pr.id === form.id) {
         return {
@@ -36,13 +37,14 @@ const EditModal = ({ hidden, setHidden, id, products }) => {
           weight: form.weight,
           creationDate: presentDate,
           price: form.price,
-          address: "",
+          address: userInfo.address || "No configured address",
         };
       }
       return pr;
     });
 
     localStorage.setItem("products", JSON.stringify(newProducts));
+    setHidden(false)
   };
 
   const newProduct = useMemo(() => {

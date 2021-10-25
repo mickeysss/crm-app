@@ -1,0 +1,19 @@
+.analyticList{
+    font-size: 12px;
+    right: 0;
+    height: 20%;
+    list-style: none;
+    padding: 0 50px 0 60%;
+    .analyticItem{
+      display: flex;
+      width: 100%;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(227, 225, 225, 0.3);
+      p{
+        margin-left: 5px;
+      }
+    }
+  }

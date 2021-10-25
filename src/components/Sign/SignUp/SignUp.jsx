@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import styles from "./SignUp.module.scss";
 
-import { Redirect } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import { NavLink } from "react-router-dom";
 import { useFormik } from "formik";
-import { validate } from "../../../validate/validate";
+import {validate} from '../../../validate/validate'
 
 const SignUp = ({isReg,setIsReg}) => {
   const formik = useFormik({
@@ -15,16 +15,20 @@ const SignUp = ({isReg,setIsReg}) => {
       email: "",
       password: "",
       repeatPassword: "",
+      company: "",
     },
-    validate,
+    validate, 
     onSubmit: (values) => {
-      localStorage.setItem("user", JSON.stringify(values));
-      setIsReg(localStorage.setItem("isReg",JSON.stringify(true)))
-    },
-  });
+        localStorage.setItem("CURRENT USER", JSON.stringify(values));
+        setIsReg(true)    
+      }
+  })
+
+  if(isReg) {
+    return <Redirect to='/main-page'/>
+    }
   return (
     <>
-    {isReg && <Redirect to="/"/>}
     <div className={styles.container}>
       <div className={styles.wrapper}>
         <div className={styles.modalBox}>
@@ -38,8 +42,9 @@ const SignUp = ({isReg,setIsReg}) => {
                   id="firstName"
                   name="firstName"
                   className={styles.formInput}
-                  placeholder={formik.errors.firstName }
+                  placeholder={"First name"}
                   type="text"
+                  onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.firstName}
                 />
@@ -55,6 +60,7 @@ const SignUp = ({isReg,setIsReg}) => {
                   className={styles.formInput}
                   placeholder="Last name"
                   type="text"
+                  onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.lastName}
                 />
@@ -71,8 +77,9 @@ const SignUp = ({isReg,setIsReg}) => {
                 className={styles.formInput}
                 placeholder="Company Name"
                 type="text"
+                onBlur={formik.handleBlur}
                 onChange={formik.handleChange}
-                value={formik.values.companyName}
+                value={formik.values.company}
               />
             </label>
             </div>
@@ -85,6 +92,7 @@ const SignUp = ({isReg,setIsReg}) => {
                   className={styles.formInput}
                   placeholder="Email"
                   type="email"
+                  onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   value={formik.values.email}
                 />            
@@ -100,6 +108,7 @@ const SignUp = ({isReg,setIsReg}) => {
                   className={styles.formInput}
                   placeholder="Password"
                   type="password"
+                  onBlur={formik.handleBlur}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
@@ -116,8 +125,8 @@ const SignUp = ({isReg,setIsReg}) => {
                 className={styles.formInput}
                 placeholder="Repeat password"
                 type="password"
-                onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                onChange={formik.handleChange}
                 value={formik.values.repeatPassword}
               />
             </label>
@@ -129,7 +138,13 @@ const SignUp = ({isReg,setIsReg}) => {
           </form>
           <div className={styles.formLink}>
           <span>Already have an account?</span>
-          <NavLink to={"signin"}><span>Log in</span></NavLink>
+            
+            <span>
+            <NavLink to={"signin"}>
+            Log in
+            </NavLink>
+            </span>
+
           </div>
         </div>
       </div>

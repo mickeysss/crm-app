@@ -27,6 +27,7 @@ $fontWeightH2: 600;
       }
 
       p {
+        color:$fontGraphColor ;
         font-weight: 400;
         font-size: 14px;
         line-height: 14px;
@@ -37,7 +38,6 @@ $fontWeightH2: 600;
     .wrapperButton {
       display: flex;
       width: 11vw;
-      height: 5vh;
       background-color: $buttonBackground;
       border-radius: 3px;
       color: $buttonFontcolor;
@@ -47,6 +47,8 @@ $fontWeightH2: 600;
       text-align: center;
       padding: 5px;
       cursor: pointer;
+      max-width: 201px;
+      max-height: 52px;
 
       .buttonText {
         margin-left: 5px;
@@ -56,13 +58,14 @@ $fontWeightH2: 600;
 }
   .productsListMenus{
     display: flex;
-    height: 5vh;
+    min-height: 54px;
     justify-content: space-between;
     color: #FFFFFF;
     background: #2B3844;
     align-items: center;
     text-align: center;
     margin-bottom: 24px;
+    border-radius: 3px;
   }
   .productListMenu{
     width: 10%;
@@ -90,6 +93,7 @@ $fontWeightH2: 600;
   }
   .productItem:last-child{
     display: flex;
+    justify-content: center;
   }
   .button{
     color:#5382E7;

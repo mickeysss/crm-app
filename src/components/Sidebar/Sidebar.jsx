@@ -2,13 +2,19 @@ import React from "react";
 
 import styles from "./Sidebar.module.scss";
 
-import { NavLink, Redirect } from "react-router-dom";
+import { NavLink,Redirect } from "react-router-dom";
 
 import { imgs } from "../../mock/mock";
 
-const SideBar = ({handleLogout}) => {
-  const user = JSON.parse(localStorage.getItem('user'))
+const SideBar = ({isLogin,setIsLogin,setIsReg,isReg}) => {
+  // const handleLogout = () => {
+  //       setIsLogin(false)
+  //       return <Redirect to='/signin'/>
 
+  //   }
+  //   if(!isLogin) {
+  //     return <Redirect to='/signin'/>
+  //   }
   return (
     <div className={styles.container}>
       <div className={styles.logoWrap}>
@@ -19,7 +25,7 @@ const SideBar = ({handleLogout}) => {
       </div>
       <nav className={styles.navWrap}>
         <ul className={styles.navList}>
-          <NavLink to={"/"}>
+          <NavLink to={"/main-page"}>
             <li className={styles.navItem}>
               <img
                 className={styles.navIcon}
@@ -63,8 +69,11 @@ const SideBar = ({handleLogout}) => {
       </nav>
       <div className={styles.loginWrap}>
         <hr />
-        <div onClick={handleLogout} className={styles.loginElement}>
-          Log out
+        <div 
+          // onClick={handleLogout}  
+          className={styles.loginElement}>
+          <img src={imgs.logout} alt="logout" />
+          <p>Log out</p> 
         </div>
       </div>
     </div>

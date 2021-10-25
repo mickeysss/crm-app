@@ -10,12 +10,13 @@ import { withStyles } from '@material-ui/core/styles';
 import { Animation } from '@devexpress/dx-react-chart';
 
 const arr = []
-const pieData = JSON.parse(localStorage.getItem('products'))
-pieData.map(dataItem => (
+const lineData = JSON.parse(localStorage.getItem('products'))
+lineData.map(dataItem => (
   arr.push(
   {area:dataItem.remains,price: dataItem.price},
   )
 ))
+const total = arr.reduce((accum, item) => accum + Number(item.price),0)
 
 const format = () => tick => tick;
 const legendStyles = () => ({
@@ -58,7 +59,6 @@ const lineStyles = () => ({
     whiteSpace: 'pre',
   },
 });
-
 const ValueLabel = (props) => {
   const { text } = props;
   return (
@@ -68,8 +68,6 @@ const ValueLabel = (props) => {
     />
   );
 };
-
-
 class LineChart extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -81,21 +79,20 @@ class LineChart extends React.PureComponent {
 
   render() {
     return (
-      
-        <Chart style={{height: '9%'}}
+      <>
+        <Chart 
+          style={{maxHeight: '9%'}}
           data={arr}
-         
         >
-          <LineSeries style={{width:'50px'}}
+        <LineSeries style={{width:'50px'}}
             valueField="price"
             argumentField="area"
             color={'green'}
-          />
-         
-
-          <Animation />
+        />
+        <Animation />
         </Chart>
-  
+        <p style={{fontSize:"42px"}}>${total}</p>
+      </>
     );
   }
 }

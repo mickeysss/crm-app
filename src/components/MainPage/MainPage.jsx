@@ -47,43 +47,18 @@ const MainPage = (props) => {
               <h2>Sales schedule by day</h2>
               <div className={styles.ovalDiagram}>
                 <PieChart />
-                <ul className={styles.analyticList}>
-                  <li className={styles.analyticItem}>
-                    <img
-                      className={styles.ovalIcon}
-                      src={imgs.smallOvalIcon}
-                      alt="analytic"
-                    />
-                    <p>Auto goods</p>
-                  </li>
-                  <li className={styles.analyticItem}>
-                    <img src={imgs.smallOvalIcon} alt="" />
-                    <p>Auto goods</p>
-                  </li>
-
-                  <li className={styles.analyticItem}>
-                    <img src={imgs.smallOvalIcon} alt="" />
-                    <p>Auto goods</p>
-                  </li>
-
-                  <li className={styles.analyticItem}>
-                    <img src={imgs.smallOvalIcon} alt="" />
-                    <p>Auto goods</p>
-                  </li>
-                </ul>
               </div>
             </div>
 
             <div className={styles.saleTotal}>
-              <h2>Total earned</h2>
+              <h2>Total products price</h2>
               <div className={styles.vectorDiagram}>
                 <LineChart/>
-                <p>$106,000</p>
               </div>
             </div>
 
             <div className={styles.saleOverview}>
-              <h2>Sales overview</h2>
+              <h2>Products overview</h2>
               <p>Graph sales for all days</p>
               <div className={styles.overviewDiagram}>
                 <BarChart />
